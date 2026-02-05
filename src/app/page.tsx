@@ -10,7 +10,7 @@ export default function Home() {
       <div className="mb-12 w-full xl:fixed xl:mb-0 xl:w-[500px]">
         <Image
           className="border-border h-28 w-28 rounded-full border-2 xl:h-[184px] xl:w-[184px]"
-          src="/images/yo.jpg"
+          src={getAssetPath('/images/yo.jpg')}
           alt="profile picture"
           width={184}
           height={184}
