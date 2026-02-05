@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build outputs
+.next
+out
+dist
+build
+
+# Cache
+.cache
+.turbo
+
+# Environment files
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# IDE
+.idea
+
+# Public assets (usually don't need formatting)
+public
+
+# Generated files
+*.min.js
+*.min.css
+
+# Coverage
+coverage
+.nyc_output

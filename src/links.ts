@@ -15,6 +15,9 @@ import reddit from '../public/icons/reddit.svg'
 import tiktok from '../public/icons/tiktok.svg'
 import twitch from '../public/icons/twitch.svg'
 import x from '../public/icons/x.svg'
+import projects from '../public/icons/projects.svg'
+import experience from '../public/icons/experience.svg'
+import cv from '../public/icons/cv.svg'
 import youtube from '../public/icons/youtube.svg'
 
 type SocialMedia = (typeof websites)[number]
@@ -24,6 +27,8 @@ type Link = {
   icon: any
   link: string
   text?: string
+  isInternal?: boolean
+  disabled?: boolean
 }
 
 const websites = [
@@ -43,116 +48,51 @@ const websites = [
   'reddit',
   'tiktok',
   'twitch',
+  'projects',
+  'experience',
+  'cv',
   'x',
   'youtube',
 ]
 
 const LINKS: { [key in SocialMedia]: Link } = {
-  behance: {
-    title: 'Behance',
-    icon: behance,
-    link: 'https://www.behance.net/johndoe',
-    text: '@johndoe',
+  experience: {
+    title: 'Experience',
+    icon: experience,
+    link: '/experience',
+    isInternal: true,
   },
-  buymeacoffee: {
-    title: 'Buy me a coffee',
-    icon: buymeacoffee,
-    link: 'https://buymeacoffee.com/johndoe',
+  projects: {
+    title: 'Projects',
+    icon: projects,
+    link: '/projects',
+    isInternal: true,
+    disabled: true,
+    text: '-soon-',
   },
-  dribbble: {
-    title: 'Dribbble',
-    icon: dribbble,
-    link: 'https://dribbble.com/johndoe',
-    text: '@johndoe',
-  },
-  figma: {
-    title: 'Figma',
-    icon: figma,
-    link: 'https://www.figma.com/@johndoe',
-    text: '@johndoe',
-  },
-  github: {
-    title: 'Github',
-    icon: github,
-    link: 'https://github.com/johndoe',
-    text: '@johndoe',
-  },
-  gumroad: {
-    title: 'Gumroad',
-    icon: gumroad,
-    link: 'https://johndoe.gumroad.com/',
-  },
-  instagram: {
-    title: 'Instagram',
-    icon: instagram,
-    link: 'https://www.instagram.com/johndoe/',
-    text: '@johndoe',
-  },
-  kofi: {
-    title: 'Ko-fi',
-    icon: kofi,
-    link: 'https://ko-fi.com/johndoe',
-    text: '@johndoe',
+  cv: {
+    title: 'Download CV',
+    icon: cv,
+    link: '/documents/Angel-Larreal-Software-Developer.pdf',
+    text: 'PDF',
   },
   linkedin: {
     title: 'Linkedin',
     icon: linkedin,
-    link: 'https://www.linkedin.com/in/johndoe/',
-    text: '@johndoe',
+    link: 'https://www.linkedin.com/in/angel-larreal-9a7973117/',
+    text: 'Angel Larreal',
   },
-  medium: {
-    title: 'Medium',
-    icon: medium,
-    link: 'https://medium.com/@johndoe',
-    text: '@johndoe',
+  github: {
+    title: 'Github',
+    icon: github,
+    link: 'https://github.com/anhelldev',
+    text: '@anhelldev',
   },
-  patreon: {
-    title: 'Patreon',
-    icon: patreon,
-    link: 'https://www.patreon.com/johndoe',
-    text: '@johndoe',
-  },
-  producthunt: {
-    title: 'Product Hunt',
-    icon: producthunt,
-    link: 'https://www.producthunt.com/@johndoe',
-    text: '@johndoe',
-  },
-  readcv: {
-    title: 'Read CV',
-    icon: readcv,
-    link: 'https://read.cv/johndoe',
-    text: '@johndoe',
-  },
-  reddit: {
-    title: 'Reddit',
-    icon: reddit,
-    link: 'https://reddit.com/u/johndoe',
-    text: '/u/johndoe',
-  },
-  tiktok: {
-    title: 'Tiktok',
-    icon: tiktok,
-    link: 'https://www.tiktok.com/@johndoe',
-    text: '@johndoe',
-  },
-  twitch: {
-    title: 'Twitch',
-    icon: twitch,
-    link: 'https://www.twitch.tv/johndoe',
-    text: '@johndoe',
-  },
-  x: {
-    title: 'X',
-    icon: x,
-    link: 'https://twitter.com/johndoe',
-    text: 'johndoe',
-  },
-  youtube: {
-    title: 'Youtube',
-    icon: youtube,
-    link: 'https://www.youtube.com/@johndoe',
-    text: '@johndoe',
+  instagram: {
+    title: 'Instagram',
+    icon: instagram,
+    link: 'https://www.instagram.com/anhelldev/',
+    text: '@anhelldev',
   },
 }
 

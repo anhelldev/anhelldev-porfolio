@@ -2,11 +2,13 @@
 
 # Bento
 
-Bento is a neobrutalism-styled nextjs tailwind template heavily insipired by bento.me.
+Bento is a neobrutalism-styled nextjs tailwind template heavily insipired by
+bento.me.
 
 ## Get started
 
-[Create a new repo](https://github.com/neobrutalism-templates/bento/generate) from this template.
+[Create a new repo](https://github.com/neobrutalism-templates/bento/generate)
+from this template.
 
 ### Installation
 
@@ -32,7 +34,8 @@ pnpm run dev
 
 #### Links config
 
-Inside `links.ts` inside `LINKS` object, every property represents a link displayed on the home page. Leave only the links you wanna show.
+Inside `links.ts` inside `LINKS` object, every property represents a link
+displayed on the home page. Leave only the links you wanna show.
 
 #### Link object
 
@@ -45,8 +48,11 @@ github: {
 },
 ```
 
-`title` and `text` are being displayed on the link, `link` is self-explanatory, and `icon` is svg icon imported from `public/icons`. Do not touch `icon` unless you want to have different icons than the default ones.
+`title` and `text` are being displayed on the link, `link` is self-explanatory,
+and `icon` is svg icon imported from `public/icons`. Do not touch `icon` unless
+you want to have different icons than the default ones.
 
 ### Styling
 
-To change the styling visit [styling docs](https://neobrutalism.dev/styling), and copy the desired styling to your css like it's shown in the styling docs.
+To change the styling visit [styling docs](https://neobrutalism.dev/styling),
+and copy the desired styling to your css like it's shown in the styling docs.

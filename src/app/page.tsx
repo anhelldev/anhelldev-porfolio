@@ -7,25 +7,23 @@ export default function Home() {
       <div className="mb-12 w-full xl:fixed xl:mb-0 xl:w-[500px]">
         <img
           className="border-border h-28 w-28 rounded-full border-2 xl:h-[184px] xl:w-[184px]"
-          src="/pfp.png"
+          src="/yo.jpg"
           alt="profile picture"
         />
 
         <div className="mt-8">
-          <h2 className="font-heading text-3xl sm:text-[44px]">John Doe</h2>
+          <h2 className="font-heading text-3xl sm:text-[44px]">
+            Angel Larrreal
+          </h2>
           <p className="font-base mt-6 text-base sm:text-xl">
-            This is the bento neobrutalism template. Check the{' '}
-            <a
-              className="font-heading underline"
-              href="https://github.com/neobrutalism-templates/bento"
-            >
-              github repo
-            </a>{' '}
-            for more info.
+            Senior Developer specializing in Angular & Flutter with 7 years of
+            full-stack experience via Node.js. I build efficient,
+            high-performance technological solutions for web and mobile.
+            Currently seeking new challenges where I can lead frontend
+            architecture and drive innovation.
+            <br />
           </p>
         </div>
-
-        <ThemeSwitcher />
       </div>
       <div className="justify-end xl:flex">
         <div
@@ -36,8 +34,8 @@ export default function Home() {
             <a
               className="border-border shadow-shadow text-main-foreground rounded-base bg-main hover:translate-x-boxShadowX hover:translate-y-boxShadowY border-2 p-5 transition-all hover:shadow-none"
               key={key}
-              target="_blank"
-              href={LINKS[key].link}
+              target={LINKS[key].isInternal ? '_self' : '_blank'}
+              href={LINKS[key].disabled ? '#' : LINKS[key].link}
             >
               <img
                 className="h-8 w-8 sm:h-10 sm:w-10"
