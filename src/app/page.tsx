@@ -1,14 +1,20 @@
 import LINKS from '@/links'
 import { ThemeSwitcher } from './theme-switcher'
+import Image from 'next/image'
+import Link from 'next/link'
+import { getAssetPath } from '@/lib/utils-path'
 
 export default function Home() {
   return (
     <div className="text-foreground relative mx-auto h-full w-[700px] max-w-full p-8 md:p-16 xl:w-[1400px]">
       <div className="mb-12 w-full xl:fixed xl:mb-0 xl:w-[500px]">
-        <img
+        <Image
           className="border-border h-28 w-28 rounded-full border-2 xl:h-[184px] xl:w-[184px]"
           src="/yo.jpg"
           alt="profile picture"
+          width={184}
+          height={184}
+          priority
         />
 
         <div className="mt-8">
@@ -30,26 +36,59 @@ export default function Home() {
           id="grid-container"
           className="text-foreground grid w-full grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-10 md:grid-cols-3 xl:w-1/2 xl:pb-16"
         >
-          {Object.keys(LINKS).map((key) => (
-            <a
-              className="border-border shadow-shadow text-main-foreground rounded-base bg-main hover:translate-x-boxShadowX hover:translate-y-boxShadowY border-2 p-5 transition-all hover:shadow-none"
-              key={key}
-              target={LINKS[key].isInternal ? '_self' : '_blank'}
-              href={LINKS[key].disabled ? '#' : LINKS[key].link}
-            >
-              <img
-                className="h-8 w-8 sm:h-10 sm:w-10"
-                src={LINKS[key].icon.src}
-                alt={LINKS[key].title}
-              />
-              <p className="font-heading mt-3 text-lg sm:text-xl">
-                {LINKS[key].title}
-              </p>
-              <p className="font-base mt-1 text-sm sm:text-base">
-                {LINKS[key].text}
-              </p>
-            </a>
-          ))}
+          {Object.keys(LINKS).map((key) => {
+            const link = LINKS[key]
+            const href = link.disabled ? '#' : link.link
+            const isExternal = !link.isInternal
+
+            // Use Link component for internal links, a tag for external
+            if (link.isInternal && !link.disabled) {
+              return (
+                <Link
+                  className="border-border shadow-shadow text-main-foreground rounded-base bg-main hover:translate-x-boxShadowX hover:translate-y-boxShadowY border-2 p-5 transition-all hover:shadow-none"
+                  key={key}
+                  href={href}
+                >
+                  <img
+                    className="h-8 w-8 sm:h-10 sm:w-10"
+                    src={link.icon.src}
+                    alt={link.title}
+                  />
+                  <p className="font-heading mt-3 text-lg sm:text-xl">
+                    {link.title}
+                  </p>
+                  <p className="font-base mt-1 text-sm sm:text-base">
+                    {link.text}
+                  </p>
+                </Link>
+              )
+            }
+
+            // For external links, use getAssetPath if it's a local file (starts with /)
+            const finalHref = href.startsWith('/') ? getAssetPath(href) : href
+
+            return (
+              <a
+                className="border-border shadow-shadow text-main-foreground rounded-base bg-main hover:translate-x-boxShadowX hover:translate-y-boxShadowY border-2 p-5 transition-all hover:shadow-none"
+                key={key}
+                target={isExternal ? '_blank' : '_self'}
+                href={finalHref}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                <img
+                  className="h-8 w-8 sm:h-10 sm:w-10"
+                  src={link.icon.src}
+                  alt={link.title}
+                />
+                <p className="font-heading mt-3 text-lg sm:text-xl">
+                  {link.title}
+                </p>
+                <p className="font-base mt-1 text-sm sm:text-base">
+                  {link.text}
+                </p>
+              </a>
+            )
+          })}
         </div>
       </div>
     </div>
